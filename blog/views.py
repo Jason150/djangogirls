@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.utils import timezone
 
@@ -13,6 +13,14 @@ def post_list(request):
         request,
         'post_list.html',
         {'contents': posts}
+    )
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(
+        request,
+        'post_detail.html',
+        {'content': post}
     )
 
     
