@@ -6,6 +6,14 @@
         <div>
             <h1><a href="">Jason Blog</a></h1>
         </div>
-    <h1>Hi Djangogirls!</h1>
+        <div>
+            {% for c in contents %}
+            <div>
+                <p>published: {{ c.published_date }}</p>
+                <h1><a href="">{{ c.title }}</a></h1>
+                <p>{{ c.text|linebreaksbr }}</p>
+            </div>
+            {% endfor %}
+        </div>
     </body>
 </html>
